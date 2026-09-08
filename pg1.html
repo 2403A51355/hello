@@ -3,24 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inline CSS Example</title>
+    <title>Pumpkin Spice & Co. | Autumn Collection</title>
 </head>
-<body style="background-color: #f4f4f9; font-family: Arial, sans-serif; margin: 0; padding: 40px; text-align: center;">
+<body style="background-color: #fbf8f3; font-family: 'Georgia', serif; margin: 0; padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh; color: #4a2c11;">
 
-    <!-- Main Heading with background, border radius, padding, and custom color -->
-    <h1 style="color: #333333; background-color: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: inline-block;">
-        Welcome to My Page
-    </h1>
+    <!-- Navbar / Header Area -->
+    <header style="text-align: center; margin-bottom: 40px;">
+        <h1 style="color: #8c3b1a; margin: 0 0 10px 0; font-size: 2.5rem; letter-spacing: 1px;">🍂 Pumpkin Spice & Co. 🍂</h1>
+        <p style="font-style: italic; color: #705335; margin: 0;">Bring the cozy warmth of autumn into your home.</p>
+        
+        <!-- Interactive Cart Counter -->
+        <div style="margin-top: 20px; font-weight: bold; background-color: #e8d8c8; padding: 8px 16px; border-radius: 20px; display: inline-block;">
+            🛒 Shopping Bag: <span id="cart-count" style="color: #8c3b1a;">0</span> items
+        </div>
+    </header>
 
-    <!-- Paragraph with specific font size, color, and line height -->
-    <p style="color: #666666; font-size: 18px; line-height: 1.6; max-width: 600px; margin: 20px auto;">
-        This paragraph is styled entirely using <strong style="color: #ff5722;">inline CSS</strong>. Each HTML element has its own separate style attribute defining its appearance.
-    </p>
+    <!-- Product Card Container -->
+    <main style="background-color: #ffffff; border-radius: 16px; box-shadow: 0 8px 24px rgba(140, 59, 26, 0.15); max-width: 350px; overflow: hidden; border: 1px solid #eadecc; transition: transform 0.2s;">
+        
+        <!-- Placeholder for Product Image (Using a cozy warm color gradient since it's pure code) -->
+        <div style="width: 100%; height: 250px; background: linear-gradient(135deg, #d97443 0%, #8c3b1a 100%); display: flex; align-items: center; justify-content: center; position: relative;">
+            <span style="font-size: 5rem;">☕</span>
+            <span style="position: absolute; top: 15px; right: 15px; background-color: #d97443; color: white; padding: 4px 10px; font-size: 0.8rem; font-weight: bold; border-radius: 4px; text-transform: uppercase; font-family: sans-serif;">Best Seller</span>
+        </div>
 
-    <!-- Styled Call-to-Action Button -->
-    <button style="background-color: #007bff; color: white; border: none; padding: 12px 24px; font-size: 16px; border-radius: 4px; cursor: pointer; font-weight: bold;">
-        Get Started
-    </button>
+        <!-- Product Details -->
+        <div style="padding: 24px;">
+            <span style="font-family: sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #b87d4b; font-weight: bold;">Limited Edition</span>
+            <h2 style="margin: 8px 0; font-size: 1.5rem; color: #4a2c11;">Spiced Cider Soy Candle</h2>
+            
+            <p style="font-size: 0.9rem; color: #705335; line-height: 1.5; margin: 0 0 20px 0;">
+                Notes of crisp autumn apple, warm cinnamon sticks, and dark clove. Hand-poured in a rustic amber glass jar.
+            </p>
+
+            <!-- Pricing & Action -->
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <span style="font-size: 1.4rem; font-weight: bold; color: #8c3b1a;">$24.00</span>
+                
+                <!-- Interactive Button -->
+                <button id="add-to-cart-btn" style="background-color: #8c3b1a; color: #ffffff; border: none; padding: 10px 20px; font-size: 0.9rem; font-family: 'Georgia', serif; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; font-weight: bold;">
+                    Add to Bag
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript for Interactive Elements -->
+    <script>
+        // Track the number of items in the shopping cart
+        let itemCount = 0;
+
+        // Get references to the HTML elements
+        const cartCountDisplay = document.getElementById('cart-count');
+        const addToCartButton = document.getElementById('add-to-cart-btn');
+
+        // Add an event listener to handle the click event
+        addToCartButton.addEventListener('click', () => {
+            // Increase item count
+            itemCount += 1;
+            
+            // Update the text dynamically on the page
+            cartCountDisplay.textContent = itemCount;
+            
+            // Provide a quick feedback effect
+            addToCartButton.style.backgroundColor = '#5c260f';
+            addToCartButton.textContent = 'Added! 🍂';
+            
+            // Reset button text after 1 second
+            setTimeout(() => {
+                addToCartButton.style.backgroundColor = '#8c3b1a';
+                addToCartButton.textContent = 'Add to Bag';
+            }, 1000);
+        });
+    </script>
 
 </body>
 </html>
